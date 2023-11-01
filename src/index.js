@@ -1,8 +1,8 @@
 const express = require('express');
 
 const app = express();
-import userRouter  from "./routes/userRoutes.js";
-import noteRouter  from "./routes/noteRoutes.js";
+const userRouter = require("./routes/userRoutes.js");
+const noteRouter = require("./routes/noteRoutes.js");
 
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -26,8 +26,9 @@ app.get("/", (req, res)=>{
 // })
 
 const PORT = process.env.PORT || 5000;
-
-mongoose.connect(process.env.MONGO_URL)
+console.log(process.env.MONGO_URL)
+mongoose.connect("mongodb+srv://admin:sG8LE5XTTmFPwqdj@cluster0.lpxz3h2.mongodb.net/notes_db?retryWrites=true&w=majority"
+)
 .then(()=>{
     app.listen(PORT, ()=>{
         console.log("Server is started on port:" + PORT);

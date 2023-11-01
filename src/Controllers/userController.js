@@ -1,11 +1,11 @@
-import userModel from "../models/user.js";
+const userModel = require("../models/user.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const SECRET_KEY = process.env.SECRET_KEY;
 
 // For Signup Method
 
-export const signup = async (req, res) => {
+exports.signup = async (req, res) => {
   // existing user check
   // hashed password
   // user creation
@@ -38,7 +38,7 @@ export const signup = async (req, res) => {
 
 // For Signin Method
 
-export const signin = async(req, res) => {
+exports.signin = async(req, res) => {
   const { email, password } = req.body;
   try {
     const existingUser = await userModel.findOne({ email: email });

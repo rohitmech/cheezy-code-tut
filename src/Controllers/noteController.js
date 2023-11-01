@@ -1,6 +1,6 @@
-import noteModel from "../models/note.js";
+const noteModel = require("../models/note.js");
 
-export const createNote = async(req, res) =>{
+exports.createNote = async(req, res) =>{
     const {title, description} = req.body;
 
     const newNote = new noteModel({
@@ -19,7 +19,7 @@ export const createNote = async(req, res) =>{
 
 }
 
-export const updateNote = async(req, res)=>{
+exports.updateNote = async(req, res)=>{
     const id = req.params.id;
     const {title, description} = req.body;
 
@@ -39,7 +39,7 @@ export const updateNote = async(req, res)=>{
 
 }
 
-export const deleteNote = async(req, res)=>{
+exports.deleteNote = async(req, res)=>{
     const id = req.params.id;
     try{
    const note = await noteModel.findByIdAndRemove(id); 
@@ -51,7 +51,7 @@ export const deleteNote = async(req, res)=>{
 
 }
 
-export const getNotes = async(req, res)=>{
+exports.getNotes = async(req, res)=>{
     try{
   const notes = await noteModel.find({userId: req.userId });
   res.status(200).json(notes);
