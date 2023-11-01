@@ -4,7 +4,7 @@ const app = express();
 import userRouter  from "./routes/userRoutes.js";
 import noteRouter  from "./routes/noteRoutes.js";
 
-import  mongoose from 'mongoose';
+const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();

@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+const jwt = require("jsonwebtoken");
 const SECRET_KEY = process.env.SECRET_KEY;
 export const auth = (req, res, next) => {
   try {
