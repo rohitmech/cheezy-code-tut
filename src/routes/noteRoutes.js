@@ -1,4 +1,4 @@
-import express from "express";
+const express = require('express');
 import { createNote, deleteNote, getNotes, updateNote } from "../Controllers/noteController.js";
 import {auth} from "../../middlewares/auth.js";
 const noteRouter = express.Router();

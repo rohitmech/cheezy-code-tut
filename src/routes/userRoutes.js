@@ -1,4 +1,4 @@
-import express from "express";
+const express = require('express');
 import { signup, signin } from "../Controllers/userController.js";
 const userRouter = express.Router();
 
