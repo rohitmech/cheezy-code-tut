@@ -16,7 +16,7 @@ app.use("/users", userRouter);
 app.use("/note", noteRouter);
 
 app.get("/", (req, res)=>{
-    res.send("Notes API from Cheezy Code")
+    res.send("Notes API from Rohit Singh")
 });
 
 
