@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type":"module",
   "scripts": {
-    "start": "node src/index.js",
-    "start dev": "nodemon  src/index.js",
-    "build": "node src/index.js"
+    "start": "node index.js",
+    "start dev": "nodemon index.js",
+    "build": "node index.js"
   },
   "keywords": [],
   "author": "",
