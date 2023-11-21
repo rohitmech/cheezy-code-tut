@@ -1,19 +1,16 @@
 import userModel from "../models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-const SECRET_KEY = process.env.SECRET_KEY;
 
 // For Signup Method
-
 export const signup = async (req, res) => {
-  // existing user check
-  // hashed password
-  // user creation
-  // token generate
 
   const { username, email, password } = req.body;
 
   try {
+    if(!username || !email || !password) {
+      return res.status(400).send("Please enter all the details to continue.")
+    }
     const existingUser = await userModel.findOne({ email: email });
 
     if (existingUser) {
@@ -37,10 +34,12 @@ export const signup = async (req, res) => {
 };
 
 // For Signin Method
-
 export const signin = async(req, res) => {
   const { email, password } = req.body;
   try {
+    if(!email || !password) {
+      return res.status(400).send("Please enter all the details to continue.")
+    }
     const existingUser = await userModel.findOne({ email: email });
     if (!existingUser) {
       return res.status(404).json({ message: "User not found" });
